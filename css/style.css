@@ -2,12 +2,12 @@ body {
   background-color: white;
 }
 
-p {
+h1, h5, h3 {
   text-align: center;
 }
 
-h1, h5, h3 {
-  text-align: center;
+.whereAreYou {
+  background-color: purple;
 }
 
 form > input {

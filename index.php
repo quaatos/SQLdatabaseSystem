@@ -1,6 +1,6 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=quaatos', 'username', 'password'); //default user = root
-                                                                                    //default pass = empty
+$database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
+
 $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
@@ -17,16 +17,18 @@ $fetch = $fetchData->fetchAll();
     <!--Navbar-->
 <div class="align">
   <ul>
-    <li><a href="index.php">home</a></li>
-    <li><a href="addData.php">Add data</a></li>
+    <li><a class="whereAreYou" href="index.php">home</a></li>
+    <li><a href="add.php">Add data</a></li>
+    <li><a href="delete.php">Delete data</a></li>
+    <li><a href="update.php">Update data</a></li>
   </ul>
 </div>
     <h1>YOUR DATABASE SYSTEM</h1>
     <h5>version 1</h5>
 <hr>
+
 <h3>Current database:</h3><br>
 <div class="tableAlign">
-
   <table>
     <th>id</th>
     <th>name</th>
