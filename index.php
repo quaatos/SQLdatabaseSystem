@@ -1,6 +1,6 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
-
+$database = new PDO('mysql:host=localhost;dbname=quaatos', 'username', 'password'); //default user = root
+                                                                                    //default pass = empty
 $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
