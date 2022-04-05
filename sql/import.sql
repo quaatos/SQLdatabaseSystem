@@ -3,9 +3,9 @@ CREATE DATABASE `quaatos`;
 USE `quaatos`;
 CREATE TABLE `data` (
   id MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  age INT NOT NULL,
-  Email VARCHAR(100) NOT NULL
+  name VARCHAR(100),
+  age INT,
+  Email VARCHAR(100)
 );
 
 INSERT INTO `data` (name, age, Email)

@@ -7,7 +7,8 @@ h1, h5, h3 {
 }
 
 .whereAreYou {
-  background-color: purple;
+  background-color: black;
+  color: white;
 }
 
 form > input {
@@ -25,6 +26,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  box-shadow: 3px 3px black;
 }
 
 li {
@@ -32,8 +34,8 @@ li {
 }
 
 a:hover {
-  background-color: gray;
-  color: purple;
+  background-color: white;
+  color: black;
 }
 
 li, a {

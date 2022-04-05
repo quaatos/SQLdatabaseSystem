@@ -14,7 +14,7 @@ $fetch = $fetchData->fetchAll();
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <!--Navbar-->
+<!--Navbar-->
 <div class="align">
   <ul>
     <li><a class="whereAreYou" href="index.php">home</a></li>
@@ -46,6 +46,5 @@ $fetch = $fetchData->fetchAll();
     ?>
       </table>
     </div>
-
   </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 //create a connection with the database
 //it is possible that your credentials are different as mine. in case: first the username than the password.
-error_reporting(0);
+//error_reporting(0);
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
 
 //part to fetch data out of the database
@@ -22,13 +22,12 @@ $query->bindParam(':name', $name, PDO::PARAM_STR);
 $query->bindParam(':age', $age, PDO::PARAM_INT);
 $query->bindParam(':email', $email, PDO::PARAM_STR);
 $query->execute();
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Add data</title>
+    <title>Delete data</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -36,8 +35,8 @@ $query->execute();
       <ul>
         <li><a href="index.php">home</a></li>
         <li><a class="whereAreYou" href="addData.php">Add data</a></li>
-        <li><a href="addData.php">Delete data</a></li>
-        <li><a href="addData.php">Update data</a></li>
+        <li><a href="delete.php">Delete data</a></li>
+        <li><a href="update.php">Update data</a></li>
       </ul>
     </div>
 <hr>
