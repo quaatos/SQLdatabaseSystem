@@ -1,0 +1,59 @@
+body {
+  background-color: white;
+}
+
+p {
+  text-align: center;
+}
+
+h1, h5, h3 {
+  text-align: center;
+}
+
+form > input {
+  display: table;
+  width: 25%;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-left: 37.5%;
+  text-align: center;
+}
+
+/*:) source:  https://www.w3schools.com/Css/tryit.asp?filename=trycss_navbar_horizontal_float*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+a:hover {
+  background-color: gray;
+  color: purple;
+}
+
+li, a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+table, tr, th, td {
+  border: 2px solid black;
+}
+
+.align {
+  display: flex;
+  justify-content: center;
+}
+
+.tableAlign, table {
+  display: flex;
+  justify-content: center;
+}
