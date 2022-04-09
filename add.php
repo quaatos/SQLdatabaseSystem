@@ -10,10 +10,21 @@ $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
 
 //gather information out of the input fields
-$name = $_POST['name'];
-$age = $_POST['age'];
-$email = $_POST['email'];
-$submit = $_POST['submit'];
+if (isset($_POST['name'])) {
+  $name = $_POST['name'];
+}
+
+if (isset($_POST['age'])) {
+  $age = $_POST['age'];
+}
+
+if (isset($_POST['email'])) {
+  $email = $_POST['email'];
+}
+
+if (isset($_POST['submit'])) {
+  $submit = $_POST['submit'];
+}
 
 //query to insert data into the database
 $sql = "INSERT INTO `data` (`name`, `age`, `Email`) VALUES (:name, :age, :email)";
