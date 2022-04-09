@@ -1,20 +1,28 @@
 <?php
-$id = $_GET['id'];
-$submit = $_POST['submit'];
-
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
 
 $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
 
-if (isset($submit)) {
-//delete data
-$deleteQuery = "DELETE FROM data WHERE id = :id";
-$query = $database->prepare($deleteQuery);
-$query->bindParam(':id', $id, PDO::PARAM_INT);
-$query->execute();
+if (isset($_POST['id'])) {
+  $id = $_POST['id'];
 }
+
+if (isset($_POST['submit'])) {
+  $submit = $_POST['submit'];
+}
+
+if (empty($id)) {
+  //do nothing
+} else {
+    $sql = "DELETE FROM `data` WHERE `id` = :id";
+    $query = $database->prepare($sql);
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    header("Location: delete.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,13 +36,13 @@ $query->execute();
       <ul>
         <li><a href="index.php">home</a></li>
         <li><a href="add.php">Add data</a></li>
-        <li><a class="whereAreYou" href="delete.php">Delete data</a></li>
+        <li><a class="whereAreYou">Delete data</a></li>
         <li><a href="update.php">Update data</a></li>
       </ul>
     </div>
 <hr>
-    <form action="index.php" method="POST">
-      <input type="number" name="id" placeholder="memeber id">
+    <form action="delete.php" method="POST">
+      <input type="number" name="id" placeholder="Person id">
       <input type="submit" name="submit" value="DELETE">
     </form>
     <hr>

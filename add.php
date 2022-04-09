@@ -16,7 +16,7 @@ if (isset($_POST['name'])) {
 
 if (isset($_POST['age'])) {
   $age = $_POST['age'];
-}
+} 
 
 if (isset($_POST['email'])) {
   $email = $_POST['email'];
@@ -25,15 +25,21 @@ if (isset($_POST['email'])) {
 if (isset($_POST['submit'])) {
   $submit = $_POST['submit'];
 }
-
 //query to insert data into the database
-$sql = "INSERT INTO `data` (`name`, `age`, `Email`) VALUES (:name, :age, :email)";
-$query = $database->prepare($sql);
-$query->bindParam(':name', $name, PDO::PARAM_STR);
-$query->bindParam(':age', $age, PDO::PARAM_INT);
-$query->bindParam(':email', $email, PDO::PARAM_STR);
-$query->execute();
+if (empty($name) && empty($age) && empty($email)) {
+  //do nothing
+} else {
+    $sql = "INSERT INTO `data` (`id`, `name`, `age`, `Email`) VALUES (:id, :fname, :age, :email)";
+    $query = $database->prepare($sql);
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->bindParam(':fname', $name, PDO::PARAM_STR);
+    $query->bindParam(':age', $age, PDO::PARAM_INT);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    header("Location: add.php");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -45,17 +51,17 @@ $query->execute();
     <div class="align">
       <ul>
         <li><a href="index.php">home</a></li>
-        <li><a class="whereAreYou" href="addData.php">Add data</a></li>
+        <li><a class="whereAreYou">Add data</a></li>
         <li><a href="delete.php">Delete data</a></li>
         <li><a href="update.php">Update data</a></li>
       </ul>
     </div>
 <hr>
-    <form action="index.php" method="POST">
+    <form action="add.php" method="post">
       <input type="text" name="name" placeholder="Name">
       <input type="number" name="age" placeholder="Age">
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="submit" name="submit" value="go">
+      <input type="text" name="email" placeholder="E-mail">
+      <input type="submit" name="submit" value="ADD">
     </form>
     <hr>
 
