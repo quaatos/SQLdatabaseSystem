@@ -1,7 +1,7 @@
-# SQLdatabaseSystem (Still under construnction)
+# SQLdatabaseSystem 
 Do something with it and maybe improve it.<br>
 I'm using PHPMYADMIN
 
-last updated: <br>
-5-4-2022<br>
-D-M-YEAR
+Pre alpha release: today; April 9 2022
+
+(idk what pre alpha means, it sounds proffesional)
