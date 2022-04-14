@@ -16,7 +16,7 @@ if (isset($_POST['name'])) {
 
 if (isset($_POST['age'])) {
   $age = $_POST['age'];
-} 
+}
 
 if (isset($_POST['email'])) {
   $email = $_POST['email'];

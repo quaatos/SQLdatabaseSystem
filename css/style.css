@@ -59,3 +59,12 @@ table, tr, th, td {
   display: flex;
   justify-content: center;
 }
+
+.inlineSubmit {
+  display: inline;
+}
+
+button {
+  width: 75px;
+  height: 25px;
+}

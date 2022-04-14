@@ -5,6 +5,22 @@ $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
 
+if (isset($_POST['id'])) {
+  $id = $_POST['id'];
+}
+
+if (isset($_POST['submit'])) {
+  $submit = $_POST['submit'];
+
+} elseif (!isset($_POST['submit'])) {
+  error_reporting(0);
+}
+
+
+$OrderQuery = "SELECT * FROM `data` WHERE id = :id";
+$query = $database->prepare($OrderQuery);
+$query->bindParam(':id', $id, PDO::PARAM_INT);
+$query->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,6 +43,16 @@ $fetch = $fetchData->fetchAll();
     <h5>version 1</h5>
 <hr>
 
+<form action="index.php" method="POST">
+  <input type="number" name="id" placeholder="Sort by id">
+  <input class="inlineSubmit" type="submit" name="submit" value="ORDER">
+  <button class="inlineSubmit" type="submit" name="reset">RESET</button>
+</form>
+
+<?php
+
+?>
+
 <h3>Current database:</h3><br>
 <div class="tableAlign">
   <table>
@@ -35,13 +61,33 @@ $fetch = $fetchData->fetchAll();
     <th>age</th>
     <th>E-mail</th>
     <?php
-    foreach ($fetch as $data) {
-      echo "<tr>
-              <td>" . $data['id'] . "</td>
-              <td>" . $data['name'] . "</td>
-              <td>" . $data['age'] . "</td>
-              <td>" . $data['Email'] . "</td>
-            </tr>";
+    if (empty($id)) {
+      foreach ($fetch as $data) {
+        echo "<tr>
+                <td>" . $data['id'] . "</td>
+                <td>" . $data['name'] . "</td>
+                <td>" . $data['age'] . "</td>
+                <td>" . $data['Email'] . "</td>
+              </tr>";
+      }
+    } elseif ($submit) {
+        foreach($query as $data) {
+          echo "<tr>
+                  <td>" . $data['id'] . "</td>
+                  <td>" . $data['name'] . "</td>
+                  <td>" . $data['age'] . "</td>
+                  <td>" . $data['Email'] . "</td>
+              </tr>";
+      }
+    } else {
+      foreach ($fetch as $data) {
+        echo "<tr>
+                <td>" . $data['id'] . "</td>
+                <td>" . $data['name'] . "</td>
+                <td>" . $data['age'] . "</td>
+                <td>" . $data['Email'] . "</td>
+              </tr>";
+      }
     }
     ?>
       </table>

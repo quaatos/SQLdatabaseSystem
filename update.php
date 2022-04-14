@@ -59,9 +59,9 @@ if (empty($id) && empty($name) && empty($age) && empty($email)) {
     <hr>
       <form action="update.php" method="POST">
         <input type="number" name="id" placeholder="Person id" require>
-        <input type="text" name="name" placeholder="Name" require>
-        <input type="number" name="age" placeholder="Age" require>
-        <input type="text" name="email" placeholder="E-mail" require>
+        <input type="text" name="name" placeholder="New Name" require>
+        <input type="number" name="age" placeholder="New Age" require>
+        <input type="text" name="email" placeholder="New E-mail" require>
         <input type="submit" name="submit" value="UPDATE">
       </form>
     <hr>
