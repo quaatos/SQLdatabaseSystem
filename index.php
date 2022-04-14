@@ -67,12 +67,12 @@ $query->execute();
               </tr>";
       }
     } elseif ($submit) {
-        foreach($query as $data) {
+        foreach($query as $OrderData) {
           echo "<tr>
-                  <td>" . $data['id'] . "</td>
-                  <td>" . $data['name'] . "</td>
-                  <td>" . $data['age'] . "</td>
-                  <td>" . $data['Email'] . "</td>
+                  <td>" . $OrderData['id'] . "</td>
+                  <td>" . $OrderData['name'] . "</td>
+                  <td>" . $OrderData['age'] . "</td>
+                  <td>" . $OrderData['Email'] . "</td>
               </tr>";
       }
     } else {
