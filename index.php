@@ -48,11 +48,7 @@ $query->execute();
   <input class="inlineSubmit" type="submit" name="submit" value="ORDER">
   <button class="inlineSubmit" type="submit" name="reset">RESET</button>
 </form>
-
-<?php
-
-?>
-
+    
 <h3>Current database:</h3><br>
 <div class="tableAlign">
   <table>
