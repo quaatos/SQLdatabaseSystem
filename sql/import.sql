@@ -32,6 +32,13 @@ VALUES ('vlad', '87', 'vlad@impalor.sl');
 INSERT INTO `data` (name, age, Email)
 VALUES ('stalin', '120', 'stalin@ussr.ru');
 
+CREATE TABLE `users`
+(
+    user_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username varchar(40) NOT NULL,
+    pass BINARY(50) NOT NULL
+)
+
 
 --add whatever you want to add.
 --Do not forget, that if you're gonna add stuff in this file, that you will have to update the php

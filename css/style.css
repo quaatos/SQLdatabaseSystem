@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: rgb(113, 143, 226);
 }
 
 h1, h5, h3 {
@@ -48,6 +48,8 @@ li, a {
 
 table, tr, th, td {
   border: 2px solid black;
+  background-color: white;
+  color: black;
 }
 
 .align {

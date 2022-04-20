@@ -1,92 +1,42 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
-
-$fetchQuery = "SELECT * FROM data";
-$fetchData = $database->query($fetchQuery);
-$fetch = $fetchData->fetchAll();
-
-if (isset($_POST['id'])) {
-  $id = $_POST['id'];
-}
+$user = "quaatos";
+$pass = "quaatos";
 
 if (isset($_POST['submit'])) {
-  $submit = $_POST['submit'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-} elseif (!isset($_POST['submit'])) {
-  error_reporting(0);
+    if ($username === $user && $password === $pass) {
+        header('Location: layout/database.php');
+    } else {
+        //do nothing
+    }
 }
 
-
-$OrderQuery = "SELECT * FROM `data` WHERE id = :id";
-$query = $database->prepare($OrderQuery);
-$query->bindParam(':id', $id, PDO::PARAM_INT);
-$query->execute();
+//TODO: check if given credentials exist in database
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Database system</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-<!--Navbar-->
-<div class="align">
-  <ul>
-    <li><a class="whereAreYou" href="index.php">home</a></li>
-    <li><a href="add.php">Add data</a></li>
-    <li><a href="delete.php">Delete data</a></li>
-    <li><a href="update.php">Update data</a></li>
-  </ul>
-</div>
-    <h1>YOUR DATABASE SYSTEM</h1>
-    <h5>version 1</h5>
-<hr>
 
-<form action="index.php" method="POST">
-  <input type="number" name="id" placeholder="Sort by id">
-  <input class="inlineSubmit" type="submit" name="submit" value="ORDER">
-  <button class="inlineSubmit" type="submit" name="reset">RESET</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="index.php" method="POST">
+        <input type="text" name="username" placeholder="Username" require>
+        <input type="password" name="password" placeholder="Password" require>
+        <input type="submit" name="submit" value="login">
+    </form>
     
-<h3>Current database:</h3><br>
-<div class="tableAlign">
-  <table>
-    <th>id</th>
-    <th>name</th>
-    <th>age</th>
-    <th>E-mail</th>
-    <?php
-    if (empty($id)) {
-      foreach ($fetch as $data) {
-        echo "<tr>
-                <td>" . $data['id'] . "</td>
-                <td>" . $data['name'] . "</td>
-                <td>" . $data['age'] . "</td>
-                <td>" . $data['Email'] . "</td>
-              </tr>";
-      }
-    } elseif ($submit) {
-        foreach($query as $OrderData) {
-          echo "<tr>
-                  <td>" . $OrderData['id'] . "</td>
-                  <td>" . $OrderData['name'] . "</td>
-                  <td>" . $OrderData['age'] . "</td>
-                  <td>" . $OrderData['Email'] . "</td>
-              </tr>";
-      }
-    } else {
-      foreach ($fetch as $data) {
-        echo "<tr>
-                <td>" . $data['id'] . "</td>
-                <td>" . $data['name'] . "</td>
-                <td>" . $data['age'] . "</td>
-                <td>" . $data['Email'] . "</td>
-              </tr>";
-      }
-    }
-    ?>
-      </table>
-    </div>
-  </body>
+    <b class="createAccountLink"><p>Want to create an account? click <a href="createAccount.php">here!</a></p></b>
+
+    <p>default credentials:</p>
+    <b><p>Username: quaatos</p></b>
+    <b><p>Password: quaatos</p><b>
+</body>
 </html>
