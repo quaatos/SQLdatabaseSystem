@@ -54,7 +54,7 @@ if (empty($name) && empty($age) && empty($email)) {
   <body>
     <div class="align">
       <ul>
-        <li><a href="index.php">home</a></li>
+        <li><a href="database.php">home</a></li>
         <li><a class="whereAreYou">Add data</a></li>
         <li><a href="delete.php">Delete data</a></li>
         <li><a href="update.php">Update data</a></li>

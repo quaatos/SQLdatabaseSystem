@@ -34,7 +34,7 @@ if (empty($id)) {
   <body>
     <div class="align">
       <ul>
-        <li><a href="index.php">home</a></li>
+        <li><a href="database.php">home</a></li>
         <li><a href="add.php">Add data</a></li>
         <li><a class="whereAreYou">Delete data</a></li>
         <li><a href="update.php">Update data</a></li>

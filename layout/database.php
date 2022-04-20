@@ -33,7 +33,7 @@ $query->execute();
 <!--Navbar-->
 <div class="align">
   <ul>
-    <li><a class="whereAreYou" href="index.php">home</a></li>
+    <li><a class="whereAreYou" href="database.php">home</a></li>
     <li><a href="add.php">Add data</a></li>
     <li><a href="delete.php">Delete data</a></li>
     <li><a href="update.php">Update data</a></li>
