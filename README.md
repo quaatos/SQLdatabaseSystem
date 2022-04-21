@@ -13,7 +13,7 @@ _____________
 under construction:<br>
 login system
 _____________
-April 21. 2022. Login system update
+April 21, 2022. Login system update
 --
 It's not possible to create an empty user.<br>
 passwords will be stored as binary numbers in database [extreme secure]<br>
