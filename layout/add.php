@@ -26,10 +26,6 @@ if (isset($_POST['submit'])) {
   $submit = $_POST['submit'];
 }
 
-if (empty($name) || empty($age) || empty($email)) {
-  //TODO: if one of the fields is empty, stop procces and do nothing
-} 
-
 if (empty($name) && empty($age) && empty($email)) {
   //do nothing
 } else {

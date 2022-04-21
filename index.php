@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
 }
 
 //TODO: check if given credentials exist in database
+//TODO: anti bruteforce + anti sql injection
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ if (isset($_POST['submit'])) {
     <form action="index.php" method="POST">
         <input type="text" name="username" placeholder="Username" require>
         <input type="password" name="password" placeholder="Password" require>
-        <input type="submit" name="submit" value="login">
+        <input type="submit" name="submit" value="LOGIN">
     </form>
     
     <b class="createAccountLink"><p>Want to create an account? click <a href="createAccount.php">here!</a></p></b>
