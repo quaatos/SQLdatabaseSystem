@@ -43,7 +43,7 @@ $query->execute();
     <h5>version 1</h5>
 <hr>
 
-<form action="index.php" method="POST">
+<form action="database.php" method="POST">
   <input type="number" name="id" placeholder="Sort by id">
   <input class="inlineSubmit" type="submit" name="submit" value="ORDER">
   <button class="inlineSubmit" type="submit" name="reset">RESET</button>
