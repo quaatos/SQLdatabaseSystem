@@ -22,7 +22,7 @@ if (empty($id)) {
     $query->execute();
     header("Location: delete.php");
 }
-
+//IN PROGRESS: confirmation if you want to delete a row.
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -30,6 +30,7 @@ if (empty($id)) {
     <meta charset="utf-8">
     <title>Delete data</title>
     <link rel="stylesheet" href="../css/style.css">  
+    <script rel="script/javascript" src="../Javascript/main.js"></script>
   </head>
   <body>
     <div class="align">
@@ -43,7 +44,7 @@ if (empty($id)) {
 <hr>
     <form action="delete.php" method="POST">
       <input type="number" name="id" placeholder="Person id">
-      <input type="submit" name="submit" value="DELETE">
+      <input type="submit" name="submit" onclick="confirmation()" value="DELETE">
     </form>
     <hr>
 

@@ -5,17 +5,10 @@ $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
 $fetch = $fetchData->fetchAll();
 
-if (isset($_POST['id'])) {
-  $id = $_POST['id'];
-}
-
 if (isset($_POST['submit'])) {
+  $id = $_POST['id'];
   $submit = $_POST['submit'];
-
-} elseif (!isset($_POST['submit'])) {
-  error_reporting(0);
 }
-
 
 $OrderQuery = "SELECT * FROM `data` WHERE id = :id";
 $query = $database->prepare($OrderQuery);
@@ -29,7 +22,7 @@ $query->execute();
     <title>Database system</title>
     <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
+<body>
 <!--Navbar-->
 <div class="align">
   <ul>
@@ -40,13 +33,12 @@ $query->execute();
   </ul>
 </div>
     <h1>YOUR DATABASE SYSTEM</h1>
-    <h5>version 1</h5>
+    <h4>V1.1</h4>
 <hr>
 
 <form action="database.php" method="POST">
   <input type="number" name="id" placeholder="Sort by id">
-  <input class="inlineSubmit" type="submit" name="submit" value="ORDER">
-  <button class="inlineSubmit" type="submit" name="reset">RESET</button>
+  <input class="inlineSubmit" type="submit" name="submit" value="ORDER / RESET">
 </form>
     
 <h3>Current database:</h3><br>
