@@ -1,5 +1,18 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['loggedInUser'])) {
+  header('Location: ../index.php');
+  die();
+}
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
+
+if (isset($_POST['logout'])) {
+  header("Location: ../index.php");
+  die();
+}
+
+
 
 $fetchQuery = "SELECT * FROM data";
 $fetchData = $database->query($fetchQuery);
@@ -23,6 +36,10 @@ $query->execute();
     <link rel="stylesheet" href="../css/style.css">
   </head>
 <body>
+<p>Logged in as:  <b><?php echo $_SESSION['user']; ?></b></p>
+<form action="database.php" method="POST">
+  <input type="submit" name="logout" value="logout">
+</form>
 <!--Navbar-->
 <div class="align">
   <ul>
@@ -33,7 +50,7 @@ $query->execute();
   </ul>
 </div>
     <h1>YOUR DATABASE SYSTEM</h1>
-    <h4>V1.1</h4>
+    <h4>V1.2</h4>
 <hr>
 
 <form action="database.php" method="POST">

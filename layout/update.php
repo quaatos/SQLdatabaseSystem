@@ -1,4 +1,5 @@
 <?php
+session_start();
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
 
 $fetchQuery = "SELECT * FROM data";
@@ -48,6 +49,7 @@ if (empty($id) && empty($name) && empty($age) && empty($email)) {
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+  <p>Logged in as:  <b><?php echo $_SESSION['user']; ?></b></p>
   <div class="align">
       <ul>
         <li><a href="database.php">home</a></li>

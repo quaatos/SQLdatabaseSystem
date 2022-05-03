@@ -1,4 +1,5 @@
 <?php
+session_start();
 //create a connection with the database
 //it is possible that your credentials are different as mine. in case: first the username than the password.
 //error_reporting(0);
@@ -48,6 +49,7 @@ if (empty($name) && empty($age) && empty($email)) {
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+    <p>Logged in as:  <b><?php echo $_SESSION['user']; ?></b></p> 
     <div class="align">
       <ul>
         <li><a href="database.php">home</a></li>

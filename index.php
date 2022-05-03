@@ -1,22 +1,3 @@
-<?php
-$user = "quaatos";
-$pass = "quaatos";
-
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if ($username === $user && $password === $pass) {
-        header('Location: layout/database.php');
-    } else {
-        //do nothing
-    }
-}
-
-//TODO: check if given credentials exist in database
-//TODO: anti bruteforce + anti sql injection
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +9,42 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <h2>Login</h2>
-    <form action="index.php" method="POST">
+    <form action="index.php" method="POST" autocomplete="off">
         <input type="text" name="username" placeholder="Username" require>
         <input type="password" name="password" placeholder="Password" require>
         <input type="submit" name="submit" value="LOGIN">
     </form>
     
     <b class="createAccountLink"><p>Want to create an account? click <a href="createAccount.php">here!</a></p></b>
-
-    <p>default credentials:</p>
-    <b><p>Username: quaatos</p></b>
-    <b><p>Password: quaatos</p><b>
 </body>
 </html>
+<?php
+session_start();
+$database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username = :username AND pass = :pass";
+    $query = $database->prepare($sql);
+    $query->bindParam(':username', $username, PDO::PARAM_STR);
+    $query->bindParam(':pass', $password, PDO::PARAM_STR);
+    $query->execute();
+    $conn = $query->fetch();
+    $_SESSION['loggedInUser'] = $_POST['username'];
+
+    if ($conn !== false) {
+        if (!empty($username) && !empty($password)) {
+            $_SESSION['user'] = $_POST['username'];
+            header("Location: layout/database.php");
+            die();
+    
+            } else {
+                $_SESSION['error'] = "Something went wrong";
+        }  
+    } else {
+        echo "<p class='errorStyle'>Something went wrong, check your credentials.</p>";
+    }
+}
+?>

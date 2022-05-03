@@ -16,6 +16,11 @@ form > input:focus {
     box-shadow: black 10px 10px;
 }
 
+.errorStyle {
+    color: red;
+    text-align: center;
+}
+
 h2 {
     text-align: center;
 }

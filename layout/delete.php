@@ -1,4 +1,5 @@
 <?php
+session_start();
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
 
 $fetchQuery = "SELECT * FROM data";
@@ -33,6 +34,7 @@ if (empty($id)) {
     <script rel="script/javascript" src="../Javascript/main.js"></script>
   </head>
   <body>
+    <p>Logged in as:  <b><?php echo $_SESSION['user']; ?></b></p> 
     <div class="align">
       <ul>
         <li><a href="database.php">home</a></li>

@@ -1,10 +1,16 @@
 <?php
+session_start();
 $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
+//if you run this script on a real server you have to change the host to your server adres.
 
 if (isset($_POST['submit'])) {
     $submit = $_POST['submit'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+
+    $fetchQuery = "SELECT * FROM users";
+    $fetchData = $database->query($fetchQuery);
+    $fetch = $fetchData->fetchAll();
 
 //if fields are empty: do nothing
 if ($submit) {
@@ -17,6 +23,7 @@ if ($submit) {
             $query->bindParam(':user', $username, PDO::PARAM_STR);
             $query->bindParam(':pass', $password, PDO::PARAM_STR);
             $query->execute();
+            header('Location: index.php');
         }
     }
 }

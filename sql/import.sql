@@ -36,7 +36,7 @@ CREATE TABLE `users`
 (
     user_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username varchar(40) NOT NULL,
-    pass BINARY(50) NOT NULL
+    pass VARCHAR(50) NOT NULL
 )
 
 
