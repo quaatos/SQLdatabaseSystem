@@ -24,22 +24,24 @@ $database = new PDO('mysql:host=localhost;dbname=quaatos', 'root', '');
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM users WHERE username = :username AND pass = :pass";
-    $query = $database->prepare($sql);
-    $query->bindParam(':username', $username, PDO::PARAM_STR);
-    $query->bindParam(':pass', $password, PDO::PARAM_STR);
-    $query->execute();
-    $conn = $query->fetch();
-    $_SESSION['loggedInUser'] = $_POST['username'];
-
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    try {
+        $sql = "SELECT * FROM users WHERE username = :username AND pass = :pass";
+        $query = $database->prepare($sql);
+        $query->bindParam(':username', $username, PDO::PARAM_STR);
+        $query->bindParam(':pass', $password, PDO::PARAM_STR);
+        $query->execute();
+        $conn = $query->fetch();
+        $_SESSION['loggedInUser'] = $_POST['username'];
+    } catch (Exception $e) {
+        echo "Username or Password is incorrect!";
+    }
+    
     if ($conn !== false) {
         if (!empty($username) && !empty($password)) {
             $_SESSION['user'] = $_POST['username'];
             header("Location: layout/database.php");
             die();
-    
             } else {
                 $_SESSION['error'] = "Something went wrong";
         }  
