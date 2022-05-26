@@ -19,3 +19,8 @@ May 3, 2022. Login System [update] V1.2
 It is now only possible to login with an existing account (Cost me a lost of work)
 I'll find further exploits in the future. (Feel free to create a issue if you find one.)
 I chanched the password storaged, i'll figure out how to encrpyt them later, Binary wasn't really save i guess :)
+_____________
+May 26, 2022. [Update]
+--
+It is now impossible to create an already existing user.
+also, password enryption is now working.
