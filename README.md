@@ -22,5 +22,5 @@ I chanched the password storaged, i'll figure out how to encrpyt them later, Bin
 _____________
 May 26, 2022. [Update]
 --
-It is now impossible to create an already existing user.
-also, password enryption is now working.
+It is now impossible to create an already existing user.<br>
+also, password enryption in progress
